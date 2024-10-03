@@ -4,11 +4,6 @@ import numpy as np
 
 class KNN:
     def __init__(self, X, Y, K, P, NORM):
-        '''
-        X: Traning Dataset
-        Y: Corresponding Labels
-        K: K-NN
-        '''
         self.X = X
         self.Y = Y
         self.K = K
@@ -35,10 +30,6 @@ class KNN:
         return sorted_indices[:self.K]
 
     def _classify(self, x, dis_func):
-        '''
-        x: an input data point
-        return: the classifed result for the input x
-        '''
         k_lables = self.Y[self._get_k_nearest(x, dis_func)]
         return Counter(k_lables).most_common(1)[0][0]
 
